@@ -19,6 +19,7 @@
                         accent: '#FF9800',       // 橙色 - 用于强调和CTA
                         dark: '#1A237E',         // 深蓝色 - 用于标题
                         light: '#E3F2FD',        // 浅蓝色 - 用于背景
+                        gold: '#D4AF37',         // 金色 - 用于特殊文字效果
                     },
                     fontFamily: {
                         sans: ['Noto Sans SC', 'sans-serif'],
@@ -65,6 +66,16 @@
                 aspect-ratio: 2/3; /* 竖版A4比例 */
                 object-fit: cover;
             }
+            .golden-text {
+                color: #D4AF37;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3),
+                             0 0 10px rgba(212, 175, 55, 0.5),
+                             0 0 20px rgba(212, 175, 55, 0.3);
+                font-weight: bold;
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
         }
     </style>
 </head>
@@ -80,16 +91,16 @@
             
             <!-- 桌面导航 -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">主頁</a>
-                <a href="#product" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">產品介紹</a>
-                <a href="#story" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">品牌故事</a>
-                <a href="#about" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">關於我们</a>
-                <a href="#partner" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">合夥招募</a>
-                <a href="#contact" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)]">聯絡我們</a>
+                <a href="#home" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">主页</a>
+                <a href="#product" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">产品介绍</a>
+                <a href="#story" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">品牌故事</a>
+                <a href="#about" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">关于我们</a>
+                <a href="#partner" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">合伙招募</a>
+                <a href="#contact" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">联系我们</a>
             </nav>
             
             <!-- 移动端菜单按钮 -->
-            <button id="menuBtn" class="md:hidden text-white text-2xl">
+            <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">
                 <i class="fa fa-bars"></i>
             </button>
         </div>
@@ -205,73 +216,67 @@
                 <p class="text-gray-600 max-w-3xl mx-auto text-[clamp(1rem,1.5vw,1.1rem)]">精心設計的包裝，呈現東江泉的純淨與高品質</p>
             </div>
             
-            <!-- 产品展示 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 产品展示 - 2行2列布局 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="group">
                     <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
-                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1f238314e7b14025bc9befe54a3498b5~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461615&amp;x-signature=NF0WQ79pO6%2FemU3%2FAmTRM0iQtKk%3D" alt="350ml 瓶装水" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1f238314e7b14025bc9befe54a3498b5~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461615&amp;x-signature=NF0WQ79pO6%2FemU3%2FAmTRM0iQtKk%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
                     </div>
                 </div>
                 
                 <div class="group">
                     <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
-                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/654a69f9382d4f55853e27dad8f7783d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461662&amp;x-signature=iT41jGAQoFeJ4EecEBG1TqfRcj0%3D" alt="500ml 瓶装水" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/654a69f9382d4f55853e27dad8f7783d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461662&amp;x-signature=iT41jGAQoFeJ4EecEBG1TqfRcj0%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
                     </div>
                 </div>
                 
                 <div class="group">
                     <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f35f23e6aaa04e4ba152e75afb562830~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461688&amp;x-signature=u6eL7xdo2RY4Wty2gasY4AnKIoU%3D" alt="550ml 瓶装水" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f35f23e6aaa04e4ba152e75afb562830~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461688&amp;x-signature=u6eL7xdo2RY4Wty2gasY4AnKIoU%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
                     </div>
                 </div>
                 
                 <div class="group">
                     <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
-                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/baa5fb64aa814852aacb0c5361bf4584~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461711&amp;x-signature=kvgTzuUEG9kdFG3vIsyiUKNam28%3D" alt="Web3 限量版" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/baa5fb64aa814852aacb0c5361bf4584~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461711&amp;x-signature=kvgTzuUEG9kdFG3vIsyiUKNam28%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
                     </div>
                 </div>
             </div>
             
-            <!-- 礼盒套装 -->
+            <!-- 礼盒套装 - 2行2列布局 -->
             <div class="mt-20">
                 <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-10">禮盒套裝</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-light rounded-xl p-6 text-center">
-                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9a06ef58b4ff4b609f88975eaf9e1323~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461841&amp;x-signature=PJjJo1TyWXvWD8UyLoTzRwG5mbk%3D" alt="消费商礼盒" class="w-36 h-36 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9a06ef58b4ff4b609f88975eaf9e1323~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461841&amp;x-signature=PJjJo1TyWXvWD8UyLoTzRwG5mbk%3D" alt="消费商礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
                         <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">消費商</h4>
                         <p class="text-gray-600 mb-2">以消費為主要定位</p>
                         <p class="text-gray-600 mb-4">品質生活的入門之選</p>
-                        <button class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors">
-                            了解更多
-                        </button>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
                     </div>
                     
-                    <div class="bg-light rounded-xl p-6 text-center">
-                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6b12a9573b284f48b744222a6831a64f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461865&amp;x-signature=kz66o8GkbMyDbH%2BlCx0%2BbmEKB0Y%3D" alt="代理商礼盒" class="w-36 h-36 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6b12a9573b284f48b744222a6831a64f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461865&amp;x-signature=kz66o8GkbMyDbH%2BlCx0%2BbmEKB0Y%3D" alt="代理商礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
                         <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">代理商</h4>
                         <p class="text-gray-600 mb-2">以銷售為主要定位</p>
                         <p class="text-gray-600 mb-4">銷售精英的理想選擇</p>
-                        <button class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors">
-                            了解更多
-                        </button>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
                     </div>
                     
-                    <div class="bg-light rounded-xl p-6 text-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/13e8a35d697046fe88a025130f9e3806~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461879&amp;x-signature=RTftoIqAQTzqu9UzOSRITl0aGMc%3D" alt="合伙人礼盒" class="w-36 h-36 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/13e8a35d697046fe88a025130f9e3806~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461879&amp;x-signature=RTftoIqAQTzqu9UzOSRITl0aGMc%3D" alt="合伙人礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
                         <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">合夥人</h4>
                         <p class="text-gray-600 mb-2">以事業為主要定位</p>
                         <p class="text-gray-600 mb-4">強大的業務拓展基礎</p>
-                        <button class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors">
-                            了解更多
-                        </button>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
                     </div>
                     
-                    <div class="bg-light rounded-xl p-6 text-center">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bb8698ec7cef4aa2b05479388d75858a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461909&amp;x-signature=CSS9W%2FYys2Kqpyo161%2FuQxFaMZg%3D" alt="Web3限量版礼盒" class="w-36 h-36 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bb8698ec7cef4aa2b05479388d75858a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461909&amp;x-signature=CSS9W%2FYys2Kqpyo161%2FuQxFaMZg%3D" alt="Web3限量版礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
                         <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">Web3 限量版</h4>
                         <p class="text-gray-600 mb-2">參與生態建設</p>
                         <p class="text-gray-600 mb-4">數位收藏品權益</p>
-                        <button class="bg-accent hover:bg-accent/90 text-white py-2 px-6 rounded-full text-sm transition-colors">了解更多</button>
+                        <a href="#partner" class="bg-accent hover:bg-accent/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
                     </div>
                 </div>
             </div>
@@ -625,9 +630,20 @@
     <section id="partner" class="py-20 bg-gradient-to-br from-dark to-primary text-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold mb-4">東江泉WEB3合夥人</h2>
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold mb-4 golden-text">東江泉WEB3合夥人</h2>
                 <!-- 宣传图片 -->
                 <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/51f6102d53fd44e69e1d6080736b216b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755230269&amp;x-signature=o7V2YczRIVQUz5sbIm2zuKzwj2I%3D" alt="东江泉WEB3合伙人计划宣传图" class="my-6 mx-auto img-fade-in" onload="this.classList.add('img-loaded')">
+                
+                <!-- 添加两个小LOGO -->
+                <div class="flex justify-center gap-6 mt-4">
+                    <a href="https://opensea.io/collection/tkchk" target="_blank" class="transition-transform hover:scale-110">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/06c1580b79144ac491243725eeb6a161~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754633080&amp;x-signature=aoYUmaEVtrmE83iP8RUsXJxZgw4%3D" alt="OpenSea" class="h-12 w-auto rounded-md shadow-lg">
+                    </a>
+                    <a href="https://www.okx.com/ul/aXqLsFH" target="_blank" class="transition-transform hover:scale-110">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/05559d72bfed4b28b80b628dae596314~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754633095&amp;x-signature=SHehIEfol28aIeysOqhi4COBn4o%3D" alt="OKX" class="h-12 w-auto rounded-md shadow-lg">
+                    </a>
+                </div>
+                
                 <p class="max-w-3xl mx-auto opacity-90 text-[clamp(1rem,1.5vw,1.1rem)]"></p>
             </div>
             
@@ -987,9 +1003,9 @@
                 <div>
                     <!-- 嵌入谷歌表单 -->
                     <div class="bg-light rounded-xl p-8">
-                        <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-6">在线订购表单</h3>
-                        <div class="aspect-video w-full rounded-lg overflow-hidden shadow-md">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdM-fayONtourDV0MvTR4gcZe45bQ2ouwNAfU_Z4VCGu5Fn0Q/viewform?embedded=true" width="640" height="1839" frameborder="0" marginheight="0" marginwidth="0">正在載入…</iframe>
+                        <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-6">在線訂購</h3>
+                        <div class="w-full rounded-lg overflow-hidden shadow-md">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdM-fayONtourDV0MvTR4gcZe45bQ2ouwNAfU_Z4VCGu5Fn0Q/viewform?embedded=true" width="340" height="680" frameborder="0" marginheight="0" marginwidth="0"></iframe>
                         </div>
                         <p class="text-gray-600 text-sm mt-4 text-center">
                             填写表单进行订购咨询，我们将尽快与您联系
@@ -1009,37 +1025,38 @@
                 <div class="mb-10">
                     <div class="flex items-center justify-center mb-6">
                         <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6120f9be73a84a2caea011edac8df86b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754465018&amp;x-signature=Qea%2BZV%2BSsoSr02ZCIgKXh38QGpE%3D" alt="东江泉LOGO" class="h-10 w-auto">
-                        </div>
-                    <div class="flex space-x-4 justify-center">
-                        <a href="https://x.com/DunhuaGroup" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fa fa-twitter text-white"></i>
-                        </a>
-                        <a href="https://www.instagram.com/tungkongchuen/" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fa fa-instagram text-white"></i>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=61574551334213" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fa fa-facebook text-white"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@DUNHUA2016" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fa fa-youtube-play text-white"></i>
-                        </a>
                     </div>
-                </div>
-                
-                <!-- 底部信息 -->
-                <div class="text-center border-t border-white/10 pt-8 pb-6">
-                    <p class="mb-3">
-                        <a href="https://www.dunhuagroup.com/" target="_blank" class="text-white hover:text-accent transition-colors text-[clamp(1rem,1.5vw,1.2rem)] font-medium">
-                            敦华出品
-                        </a>
-                    </p>
-                    <p class="text-gray-300 mb-4 text-[clamp(0.95rem,1.3vw,1.1rem)]">一脉相連 . 飲水思源</p>
-                    <p class="text-gray-300 mb-6 text-[clamp(0.95rem,1.3vw,1.1rem)]">做一瓶有故事的好泉水</p>
-                    <p class="text-gray-400 text-sm">東江泉 © 版權所有</p>
-                    <p class="text-gray-400 text-sm">Copyright © 2024-2025</p>
+                    <a href="https://www.dunhuagroup.com/" target="_blank" class="text-white hover:text-accent transition-colors mb-4 inline-block text-lg font-medium">敦华出品</a>
+                    <p class="text-gray-300 mb-6 text-lg">一脉相連 . 飲水思源</p>
+                    <p class="text-gray-300 mb-8 text-lg">做一瓶有故事的好泉水</p>
+                    
+                    <!-- 版权信息 -->
+                    <div class="border-t border-white/10 pt-8">
+                        <p class="text-gray-400 text-sm">東江泉 © 版權所有</p>
+                        <p class="text-gray-400 text-sm mt-2">Copyright © 2024-2025</p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-</body></html>
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/90', 'bg-blur', 'nav-shadow');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-dark/90', 'bg-blur', 'nav-shadow');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+        
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+        
+        menuBtn.addEventListener('click', ()</script></body></html>
